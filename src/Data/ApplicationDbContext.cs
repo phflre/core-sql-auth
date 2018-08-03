@@ -11,7 +11,5 @@ namespace AngularASPNETCore2WebApiAuth.Data
             : base(options)
         {
         }
-
-        public DbSet<Customer> Customers { get; set; }
     }
 }

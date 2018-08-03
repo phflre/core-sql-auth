@@ -43,8 +43,7 @@ namespace AngularASPNETCore2WebApiAuth
     {
       // Add framework services.
       services.AddDbContext<ApplicationDbContext>(options =>
-          options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-              b => b.MigrationsAssembly("AngularASPNETCore2WebApiAuth")));
+          options.UseSqlite("Filename=./app.db"));
 
       services.AddSingleton<IJwtFactory, JwtFactory>();
 

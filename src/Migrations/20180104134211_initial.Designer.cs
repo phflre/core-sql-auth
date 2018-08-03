@@ -38,11 +38,13 @@ namespace AngularASPNETCore2WebApiAuth.Migrations
 
                     b.Property<long?>("FacebookId");
 
-                    b.Property<string>("FirstName");
-
-                    b.Property<string>("LastName");
+                    b.Property<string>("Name");
 
                     b.Property<bool>("LockoutEnabled");
+
+                    b.Property<bool>("ReceiveNotifications");
+
+                    b.Property<bool>("PoliciesAccepted");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
@@ -53,12 +55,6 @@ namespace AngularASPNETCore2WebApiAuth.Migrations
                         .HasMaxLength(256);
 
                     b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("PictureUrl");
 
                     b.Property<string>("SecurityStamp");
 

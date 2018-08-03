@@ -63,19 +63,18 @@ namespace AngularASPNETCore2WebApiAuth.Controllers
       {
         var appUser = new AppUser
         {
-          FirstName = userInfo.FirstName,
-          LastName = userInfo.LastName,
+          Name = userInfo.FirstName + " " + userInfo.LastName,
+          PoliciesAccepted = true,
           FacebookId = userInfo.Id,
           Email = userInfo.Email,
           UserName = userInfo.Email,
-          PictureUrl = userInfo.Picture.Data.Url
+          ReceiveNotifications = true
         };
 
         var result = await _userManager.CreateAsync(appUser, Convert.ToBase64String(Guid.NewGuid().ToByteArray()).Substring(0, 8));
 
         if (!result.Succeeded) return new BadRequestObjectResult(Errors.AddErrorsToModelState(result, ModelState));
 
-        await _appDbContext.Customers.AddAsync(new Customer { IdentityId = appUser.Id, Location = "",Locale = userInfo.Locale,Gender = userInfo.Gender});
         await _appDbContext.SaveChangesAsync();
       }
 
